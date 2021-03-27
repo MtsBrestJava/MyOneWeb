@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}">
+
+
+    <meta charset="UTF-8"/>
+    <title>My App</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Brest App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-2" type="button">Привет</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary me-2" type="button">Ссылочки</button>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-success me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Менюшка
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" th:onclick="'window.location.href=\''+@{/}+'\''">Список челов</a></li>
+                        <li><a class="dropdown-item" href="#" th:onclick="'window.location.href=\''+@{/addHuman}+'\''">Добавить чела</a></li>
+                        <li><a class="dropdown-item" href="#">Удалить чела</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Админка</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-secondary disabled" type="button">Отключено</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="alert alert-primary fs-4 fw-bold">
+    <td th:text="${name}">Brest Java MEOOOWWWW</td>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card" style="max-width: 554px;">
+            <table class="table table-striped text-left">
+                <thead class="thead-light">
+                <tr class="text-left">
+                    <th width="50%">Имя</th>
+                    <th width="25%">Возраст</th>
+                    <th width="25%" class="text-right">Вес</th>
+<!--                    <th width="25%"></th>-->
+                </tr>
+                </thead>
+                <!-- Next lines - fill items list:-->
+                <tbody>
+                <tr th:each="human : ${humans}">
+                    <td th:text="${human.getName()}">Human name</td>
+                    <td th:text="${human.getAge()}">Human age</td>
+                    <td th:text="${human.getweight()}">Human weight</td>
+<!--                    <td th:text="${#numbers.formatDecimal(item.itemPrice, 1, 'COMMA', 2, 'POINT')}" class="text-right">0.00</td>-->
+                    </span>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+
+</body>
+</html>
+

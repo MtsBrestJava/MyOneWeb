@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}">
+
+
+    <meta charset="UTF-8"/>
+    <title>My App</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Brest App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-human">
+                    <button class="btn btn-outline-primary me-2" type="button">Привет</button>
+                </li>
+                <li class="nav-human">
+                    <button class="btn btn-outline-primary me-2" type="button">Ссылочки</button>
+                </li>
+                <li class="nav-human dropdown">
+                    <a class="btn btn-outline-success me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Менюшка
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-human" href="#" th:onclick="'window.location.href=\''+@{/}+'\''">Список челов</a></li>
+                        <li><a class="dropdown-human" href="#">Добавить чела</a></li>
+                        <li><a class="dropdown-human" href="#">Удалить чела</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-human" href="#">Админка</a></li>
+                    </ul>
+                </li>
+                <li class="nav-human">
+                    <button class="btn btn-secondary disabled" type="button">Отключено</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="alert alert-primary fs-4 fw-bold">
+    <td th:text="${name}">Тут добавляется чел: </td>
+</div>
+
+<section id="human">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="max-width: 850px;">
+                    <div class="card-body">
+                        <form id="humanForm">
+                            <div class="alert alert-danger">
+                                <p>Please fix errors below:</p>
+                            </div>
+                            <input id="field_humanId"
+                                   type="hidden"
+                                  />
+                            <div class="form-group">
+                                <label class="form-control-label" for="field_humanName">Имя человека</label>
+                                <input class="form-control" pattern="[A-Za-z0-9]"
+                                       id="field_humanName"
+                                       type="text" value=""
+                                       />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="field_humanprice">Возраст человека</label>
+                                <input id="field_humanprice" type="text"
+                                       class="currency form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="field_humanprice">Вес человека</label>
+                                <input id="field_humanweight" type="text"
+                                       class="currency form-control"/>
+                            </div>
+                        </form>
+                        <br>
+                        <div>
+                            <a href="humans.html" class="btn btn-success"
+                               th:text="Добавить">Кнопочка нана</a>
+                            <a th:href="Отмена" class="btn btn-danger">Отмена кнопочка</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="../static/js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+
+</body>
+</html>
+
