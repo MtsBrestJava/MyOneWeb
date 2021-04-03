@@ -16,7 +16,7 @@ public class MyWebController {
 
     @RequestMapping("/")
     public String greeting(@RequestParam(value="name", required=false, defaultValue="Meow") String name, Model model) {
-        List<Human> humansList = humanService.generateHumans();
+        List<Human> humansList = humanService.getHumans();
         System.out.println("humans = " + humansList);
         model.addAttribute("name", name);
         model.addAttribute("humans", humansList);
@@ -30,5 +30,7 @@ public class MyWebController {
         model.addAttribute("human", human);
         return "addHuman";
     }
+
+
 
 }
