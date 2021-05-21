@@ -24,4 +24,10 @@ public class HumanService {
     public List<Human> getHumans() {
         return humans;
     }
+
+    public void addHuman(Human newHuman) {
+        System.out.println("Human added to service: " + newHuman.toString());
+        humans.add(newHuman);
+        // restTemplate.postFor......
+    }
 }

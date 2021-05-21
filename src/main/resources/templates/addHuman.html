@@ -45,7 +45,7 @@
 </nav>
 
 <div class="alert alert-primary fs-4 fw-bold">
-    <td th:text="${name}">Тут добавляется чел: </td>
+    <td>Тут добавляется чел: </td>
 </div>
 
 <section id="human">
@@ -55,35 +55,37 @@
             <div class="col">
                 <div class="card" style="max-width: 850px;">
                     <div class="card-body">
-                        <form id="humanForm">
-                            <div class="alert alert-danger">
-                                <p>Please fix errors below:</p>
-                            </div>
+                        <form id="humanForm"
+                              th:object="${human}"
+                              th:action="@{${#httpServletRequest.servletPath}}"
+                              th:method="@{post}">
                             <input id="field_humanId"
                                    type="hidden"
-                                  />
+                                   th:field="*{id}"/>
                             <div class="form-group">
                                 <label class="form-control-label" for="field_humanName">Имя человека</label>
                                 <input class="form-control" pattern="[A-Za-z0-9]"
                                        id="field_humanName"
                                        type="text" value=""
-                                       />
+                                       th:field="*{name}"/>
+                            <div class="form-group">
+                                <label class="form-control-label" for="field_humanAge">Возраст человека</label>
+                                <input id="field_humanAge" type="text"
+                                       class="currency form-control"
+                                       th:field="*{age}"/>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label" for="field_humanprice">Возраст человека</label>
-                                <input id="field_humanprice" type="text"
-                                       class="currency form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label" for="field_humanprice">Вес человека</label>
-                                <input id="field_humanweight" type="text"
-                                       class="currency form-control"/>
+                                <label class="form-control-label" for="field_humanWeight">Вес человека</label>
+                                <input id="field_humanWeight" type="text"
+                                       class="currency form-control"
+                                       th:field="*{weight}"/>
                             </div>
                         </form>
                         <br>
                         <div>
                             <a href="humans.html" class="btn btn-success"
-                               th:text="Добавить">Кнопочка нана</a>
+                               th:text="Добавить"
+                               th:onclick="@{document.forms['humanForm'].submit(); return false;}">Кнопочка нана</a>
                             <a th:href="Отмена" class="btn btn-danger">Отмена кнопочка</a>
                         </div>
 

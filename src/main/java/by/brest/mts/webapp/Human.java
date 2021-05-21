@@ -59,10 +59,20 @@ public class Human {
     public void setAge(int age) {
         this.age = age;
     }
-    public float getweight() {
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public float getWeight() {
         return weight;
     }
-    public void setweight(float weight) {
+
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 }
